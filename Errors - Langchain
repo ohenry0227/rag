@@ -1,0 +1,41 @@
+Error
+-> 926 raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+
+AttributeError: 'ModelPrivateAttr' object has no attribute 'generate'
+
+Solution:
+ pip list | grep ollama
+
+(cb-env) (base) henrypotsangbam@Henrys-MacBook-Pro langchain-academy % pip list | grep ollama
+langchain-ollama         0.2.0
+ollama                   0.3.3
+
+—
+pip list --outdated --format columns
+
+(cb-env) (base) henrypotsangbam@Henrys-MacBook-Pro langchain-academy % pip list --outdated --format columns
+Package                  Version  Latest          Type
+------------------------ -------- --------------- -----
+aiohttp                  3.10.6   3.10.8          wheel
+langchain                0.2.16   0.3.1           wheel
+langchain-cohere         0.2.4    0.3.0           wheel
+langchain-community      0.2.17   0.3.1           wheel
+langchain-core           0.2.41   0.3.6           wheel
+langchain-experimental   0.0.65   0.3.2           wheel
+langchain-openai         0.1.25   0.2.1           wheel
+langchain-text-splitters 0.2.4    0.3.0           wheel
+langgraph-checkpoint     1.0.11   1.0.12          wheel
+numpy                    1.26.4   2.0.2           wheel
+pydantic_core            2.23.4   2.24.0          wheel
+pypdf                    5.0.0    5.0.1           wheel
+setuptools               58.0.4   75.1.0          wheel
+tenacity                 8.5.0    9.0.0           wheel
+types-requests           2.31.0.6 2.32.0.20240914 wheel
+urllib3                  1.26.20  2.2.3           wheel
+yarl                     1.13.0   1.13.1          wheel
+(cb-env) (base) henrypotsangbam@Henrys-MacBook-Pro langchain-academy % pip install --upgrade  
+
+
+
+pip uninstall  langchain-ollama
+pip install -U langchain-ollama
