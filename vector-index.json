@@ -1,0 +1,74 @@
+{
+  "type": "fulltext-index",
+  "name": "knowledge_bucket.knowledge.vector-index",
+  "uuid": "220e2900a6a17342",
+  "sourceType": "gocbcore",
+  "sourceName": "knowledge_bucket",
+  "sourceUUID": "200fd8675057732324926f994dd4621a",
+  "planParams": {
+    "maxPartitionsPerPIndex": 1024,
+    "indexPartitions": 1
+  },
+  "params": {
+    "doc_config": {
+      "docid_prefix_delim": "",
+      "docid_regexp": "",
+      "mode": "scope.collection.type_field",
+      "type_field": "type"
+    },
+    "mapping": {
+      "analysis": {},
+      "default_analyzer": "standard",
+      "default_datetime_parser": "dateTimeOptional",
+      "default_field": "_all",
+      "default_mapping": {
+        "dynamic": true,
+        "enabled": false
+      },
+      "default_type": "_default",
+      "docvalues_dynamic": false,
+      "index_dynamic": true,
+      "store_dynamic": false,
+      "type_field": "_type",
+      "types": {
+        "knowledge.manual": {
+          "dynamic": true,
+          "enabled": true,
+          "properties": {
+            "embedding": {
+              "dynamic": false,
+              "enabled": true,
+              "fields": [
+                {
+                  "dims": 4096,
+                  "index": true,
+                  "name": "embedding",
+                  "similarity": "dot_product",
+                  "type": "vector",
+                  "vector_index_optimized_for": "recall"
+                }
+              ]
+            },
+            "text": {
+              "dynamic": false,
+              "enabled": true,
+              "fields": [
+                {
+                  "index": true,
+                  "name": "text",
+                  "store": true,
+                  "type": "text"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "store": {
+      "indexType": "scorch",
+      "segmentVersion": 16
+    }
+  },
+  "sourceParams": {}
+}
